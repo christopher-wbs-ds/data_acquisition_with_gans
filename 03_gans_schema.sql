@@ -18,3 +18,18 @@ CREATE TABLE populations(
     FOREIGN KEY (city_id) REFERENCES cities(city_id),
     PRIMARY KEY (city_id, date_gathered)
 );
+
+CREATE TABLE forecasts(
+    temp FLOAT,
+    feels_like FLOAT,
+    `humidity_%` INT,
+    wind_speed FLOAT,
+    wind_gust FLOAT,
+    `precipitation_%` FLOAT,
+    rain_3h FLOAT,
+    snow_3h FLOAT, 
+    forecast_time DATETIME NOT NULL,    
+    city_id INT,
+    forecast_id INT AUTO_INCREMENT PRIMARY KEY,
+    FOREIGN KEY (city_id) REFERENCES cities(city_id)
+);
